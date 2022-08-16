@@ -1,0 +1,1173 @@
+<!DOCTYPE html>
+<html lang="'en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>tags</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/0e2f29c8a1.js" crossorigin="anonymous"></script>
+  <script src="js/md5.min.js"></script>
+
+  <link rel="stylesheet" href="afterSearch.css"/>
+
+  <script defer src="afterSearch.js"></script>
+</head>
+<body onload="getTitle();">
+  <div class="header">
+    <div class="logo">
+      <img src="images/icon/logo.png" alt="logo" onclick='location.reload();'/>
+    </div>
+
+    <div class="search_bar">
+      <input type="search" id='userInput' placeholder="Type something...">
+      <span class="fa fa-search fa-2x" id="searchButton" onclick=""></span>
+    </div>
+
+    <div class="button-box">
+      <div id="btn"></div>
+      <button type="button" id='regular' class="toggle-btn" style='color:white' onclick="regular()">Regular</button>
+      <button type="button" id='weird' class="toggle-btn" onclick="weird()">Weird</button>
+    </div>
+
+    <div class="collect">
+      <span class="fa fa-star-o fa-2x" onclick="getCollection();"></span>
+    </div>
+
+  </div>
+  <div class="content" id="content">
+    <div id="main" class="section" title="">
+      <div class="preview">
+        <img src="" class="preview-img0">
+        <img src="" class="preview-img0">
+        <img src="" class="preview-img0">
+        <img src="" class="preview-img0">
+        <img src="" class="preview-img0">
+        <div class="title">
+        <h1 class="word">loading...</h1>
+        </div>
+        <div class="hover-text">
+            <h1 class="word-hover">loading...</h1>
+        </div>  
+      </div>
+
+      <div id="wrapper">
+        <div class="section-textbox">
+          <h1 class="section-text">flowers</h1>
+          <span class="fa fa-close" onClick="event.stopPropagation(); closeSection();"></span>
+        </div>  
+        <div id="columns">
+          <div class="pin" >
+                <img src="" alt="image" class="pop_img0" id="SK" onClick="event.stopPropagation(); sending(this);">
+                <div class="info">
+                  <h3>Title of the artwork</h3>
+                  <p>Name of the artist, 0000</p>
+                </div>
+                <img src="images/icon/collect.png" class='collect-btn' onclick="collectThis(this)">
+            </div>
+    
+            <div class="pin">
+              <img src="" alt="image" class="pop_img0" id="SK" onClick="event.stopPropagation(); sending(this);">
+              <div class="info">
+                  <h3>Title of the artwork</h3>
+                  <p>Name of the artist, 0000</p>
+                </div>
+                <img src="images/icon/collect.png" class='collect-btn' onclick="collectThis(this)"> 
+              </div>
+    
+            <div class="pin">
+              <img src="" alt="image" class="pop_img0" id="SK" onClick="event.stopPropagation(); sending(this);">
+              <div class="info">
+                  <h3>Title of the artwork</h3>
+                  <p>Name of the artist, 0000</p>
+                </div>
+                <img src="images/icon/collect.png" class='collect-btn' onclick="collectThis(this)">
+            </div>
+    
+            <div class="pin">
+              <img src="" alt="image" class="pop_img0" id="SK" onClick="event.stopPropagation(); sending(this);">
+              <div class="info">
+                  <h3>Title of the artwork</h3>
+                  <p>Name of the artist, 0000</p>
+                </div>
+                <img src="images/icon/collect.png" class='collect-btn' onclick="collectThis(this)">
+            </div>
+    
+            <div class="pin">
+              <img src="" alt="image" class="pop_img0" id="SK" onClick="event.stopPropagation(); sending(this);">
+              <div class="info">
+                  <h3>Title of the artwork</h3>
+                  <p>Name of the artist, 0000</p>
+                </div>
+                <img src="images/icon/collect.png" class='collect-btn' onclick="collectThis(this)">
+            </div>
+    
+            <div class="pin">
+              <img src="" alt="image" class="pop_img0" id="SK" onClick="event.stopPropagation(); sending(this);">
+              <div class="info">
+                  <h3>Title of the artwork</h3>
+                  <p>Name of the artist, 0000</p>
+                </div>
+                <img src="images/icon/collect.png" class='collect-btn' onclick="collectThis(this)">
+            </div>
+    
+            <div class="pin">
+              <img src="" alt="image" class="pop_img0" id="SK" onClick="event.stopPropagation(); sending(this);">
+              <div class="info">
+                  <h3>Title of the artwork</h3>
+                  <p>Name of the artist, 0000</p>
+                </div>
+                <img src="images/icon/collect.png" class='collect-btn' onclick="collectThis(this)">
+            </div>
+    
+            <div class="pin">
+              <img src="" alt="image" class="pop_img0" id="SK" onClick="event.stopPropagation(); sending(this);">
+              <div class="info">
+                  <h3>Title of the artwork</h3>
+                  <p>Name of the artist, 0000</p>
+                </div>
+                <img src="images/icon/collect.png" class='collect-btn' onclick="collectThis(this)">
+            </div>
+    
+            <div class="pin">
+              <img src="" alt="image" class="pop_img0" id="SK" onClick="event.stopPropagation(); sending(this);">
+              <div class="info">
+                  <h3>Title of the artwork</h3>
+                  <p>Name of the artist, 0000</p>
+                </div>
+                <img src="images/icon/collect.png" class='collect-btn' onclick="collectThis(this)">
+            </div>
+    
+            <div class="pin">
+              <img src="" alt="image" class="pop_img0" id="SK" onClick="event.stopPropagation(); sending(this);">
+              <div class="info">
+                  <h3>Title of the artwork</h3>
+                  <p>Name of the artist, 0000</p>
+                </div>
+                <img src="images/icon/collect.png" class='collect-btn' onclick="collectThis(this)">
+            </div>
+            <div class="pin" >
+                <img src="" alt="image" class="pop_img0" id="SK" onClick="event.stopPropagation(); sending(this);">
+                <div class="info">
+                  <h3>Title of the artwork</h3>
+                  <p>Name of the artist, 0000</p>
+                </div>
+                <img src="images/icon/collect.png" class='collect-btn' onclick="collectThis(this)">
+            </div>
+    
+            <div class="pin">
+              <img src="" alt="image" class="pop_img0" id="SK" onClick="event.stopPropagation(); sending(this);">
+              <div class="info">
+                  <h3>Title of the artwork</h3>
+                  <p>Name of the artist, 0000</p>
+                </div>
+                <img src="images/icon/collect.png" class='collect-btn' onclick="collectThis(this)"> 
+              </div>
+    
+            <div class="pin">
+              <img src="" alt="image" class="pop_img0" id="SK" onClick="event.stopPropagation(); sending(this);">
+              <div class="info">
+                  <h3>Title of the artwork</h3>
+                  <p>Name of the artist, 0000</p>
+                </div>
+                <img src="images/icon/collect.png" class='collect-btn' onclick="collectThis(this)">
+            </div>
+    
+            <div class="pin">
+              <img src="" alt="image" class="pop_img0" id="SK" onClick="event.stopPropagation(); sending(this);">
+              <div class="info">
+                  <h3>Title of the artwork</h3>
+                  <p>Name of the artist, 0000</p>
+                </div>
+                <img src="images/icon/collect.png" class='collect-btn' onclick="collectThis(this)">
+            </div>
+    
+            <div class="pin">
+              <img src="" alt="image" class="pop_img0" id="SK" onClick="event.stopPropagation(); sending(this);">
+              <div class="info">
+                  <h3>Title of the artwork</h3>
+                  <p>Name of the artist, 0000</p>
+                </div>
+                <img src="images/icon/collect.png" class='collect-btn' onclick="collectThis(this)">
+            </div>
+    
+            <div class="pin">
+              <img src="" alt="image" class="pop_img0" id="SK" onClick="event.stopPropagation(); sending(this);">
+              <div class="info">
+                  <h3>Title of the artwork</h3>
+                  <p>Name of the artist, 0000</p>
+                </div>
+                <img src="images/icon/collect.png" class='collect-btn' onclick="collectThis(this)">
+            </div>
+    
+            <div class="pin">
+              <img src="" alt="image" class="pop_img0" id="SK" onClick="event.stopPropagation(); sending(this);">
+              <div class="info">
+                  <h3>Title of the artwork</h3>
+                  <p>Name of the artist, 0000</p>
+                </div>
+                <img src="images/icon/collect.png" class='collect-btn' onclick="collectThis(this)">
+            </div>
+    
+            <div class="pin">
+              <img src="" alt="image" class="pop_img0" id="SK" onClick="event.stopPropagation(); sending(this);">
+              <div class="info">
+                  <h3>Title of the artwork</h3>
+                  <p>Name of the artist, 0000</p>
+                </div>
+                <img src="images/icon/collect.png" class='collect-btn' onclick="collectThis(this)">
+            </div>
+    
+            <div class="pin">
+              <img src="" alt="image" class="pop_img0" id="SK" onClick="event.stopPropagation(); sending(this);">
+              <div class="info">
+                  <h3>Title of the artwork</h3>
+                  <p>Name of the artist, 0000</p>
+                </div>
+                <img src="images/icon/collect.png" class='collect-btn' onclick="collectThis(this)">
+            </div>
+    
+            <div class="pin">
+              <img src="" alt="image" class="pop_img0" id="SK" onClick="event.stopPropagation(); sending(this);">
+              <div class="info">
+                  <h3>Title of the artwork</h3>
+                  <p>Name of the artist, 0000</p>
+                </div>
+                <img src="images/icon/collect.png" class='collect-btn' onclick="collectThis(this)">
+            </div>
+  
+        </div>
+      </div>
+    </div>
+
+    <div id="1" class="section" title="a">
+      <div class="preview">
+        <img src="" class="preview-img1">
+        <img src="" class="preview-img1">
+        <img src="" class="preview-img1">
+        <img src="" class="preview-img1">
+        <img src="" class="preview-img1">
+        <div class="title" id="title">
+          <h1 class="word">loading...</h1>
+        </div>
+        <div class="hover-text">
+          <div class="title-to-search" onClick="event.stopPropagation(); searchTitle(this);">
+            <h1 class="word-hover">loading...</h1>
+            <span class="fa fa-search"></span>
+          </div>
+          <br>
+          <span class="fa fa-refresh" id='1' onClick="event.stopPropagation(); shuffle(this);"></span>
+        </div>
+      </div>
+      <div id="wrapper">
+        <div class="section-textbox">
+          <h1 class="section-text">flowers</h1>
+          <span class="fa fa-close" onClick="event.stopPropagation(); closeSection();"></span>
+        </div>  
+        <div id="columns">
+            <div class="pin" >
+                <img src="" alt="image" class="pop_img1" id="SK" onClick="event.stopPropagation(); sending(this);">
+                <div class="info">
+                  <h3>Title of the artwork</h3>
+                  <p>Name of the artist, 0000</p>
+                </div>
+                <img src="images/icon/collect.png" class='collect-btn' onclick="collectThis(this)">
+            </div>
+    
+            <div class="pin">
+              <img src="" alt="image" class="pop_img1" id="SK" onClick="event.stopPropagation(); sending(this);">
+              <div class="info">
+                  <h3>Title of the artwork</h3>
+                  <p>Name of the artist, 0000</p>
+                </div>
+                <img src="images/icon/collect.png" class='collect-btn' onclick="collectThis(this)">
+              </div>
+    
+            <div class="pin">
+              <img src="" alt="image" class="pop_img1" id="SK" onClick="event.stopPropagation(); sending(this);">
+              <div class="info">
+                  <h3>Title of the artwork</h3>
+                  <p>Name of the artist, 0000</p>
+                </div>
+                <img src="images/icon/collect.png" class='collect-btn' onclick="collectThis(this)">
+            </div>
+    
+            <div class="pin">
+              <img src="" alt="image" class="pop_img1" id="SK" onClick="event.stopPropagation(); sending(this);">
+              <div class="info">
+                  <h3>Title of the artwork</h3>
+                  <p>Name of the artist, 0000</p>
+                </div>
+                <img src="images/icon/collect.png" class='collect-btn' onclick="collectThis(this)">
+            </div>
+    
+            <div class="pin">
+              <img src="" alt="image" class="pop_img1" id="SK" onClick="event.stopPropagation(); sending(this);">
+              <div class="info">
+                  <h3>Title of the artwork</h3>
+                  <p>Name of the artist, 0000</p>
+                </div>
+                <img src="images/icon/collect.png" class='collect-btn' onclick="collectThis(this)">
+            </div>
+    
+            <div class="pin">
+              <img src="" alt="image" class="pop_img1" id="SK" onClick="event.stopPropagation(); sending(this);">
+              <div class="info">
+                  <h3>Title of the artwork</h3>
+                  <p>Name of the artist, 0000</p>
+                </div>
+                <img src="images/icon/collect.png" class='collect-btn' onclick="collectThis(this)">
+            </div>
+    
+            <div class="pin">
+              <img src="" alt="image" class="pop_img1" id="SK" onClick="event.stopPropagation(); sending(this);">
+              <div class="info">
+                  <h3>Title of the artwork</h3>
+                  <p>Name of the artist, 0000</p>
+                </div>
+                <img src="images/icon/collect.png" class='collect-btn' onclick="collectThis(this)">
+            </div>
+    
+            <div class="pin">
+              <img src="" alt="image" class="pop_img1" id="SK" onClick="event.stopPropagation(); sending(this);">
+              <div class="info">
+                  <h3>Title of the artwork</h3>
+                  <p>Name of the artist, 0000</p>
+                </div>
+                <img src="images/icon/collect.png" class='collect-btn' onclick="collectThis(this)">
+            </div>
+    
+            <div class="pin">
+              <img src="" alt="image" class="pop_img1" id="SK" onClick="event.stopPropagation(); sending(this);">
+              <div class="info">
+                  <h3>Title of the artwork</h3>
+                  <p>Name of the artist, 0000</p>
+                </div>
+                <img src="images/icon/collect.png" class='collect-btn' onclick="collectThis(this)">
+            </div>
+    
+            <div class="pin">
+              <img src="" alt="image" class="pop_img1" id="SK" onClick="event.stopPropagation(); sending(this);">
+              <div class="info">
+                  <h3>Title of the artwork</h3>
+                  <p>Name of the artist, 0000</p>
+                </div>
+                <img src="images/icon/collect.png" class='collect-btn' onclick="collectThis(this)">
+            </div>
+            <div class="pin" >
+              <img src="" alt="image" class="pop_img1" id="SK" onClick="event.stopPropagation(); sending(this);">
+              <div class="info">
+                <h3>Title of the artwork</h3>
+                <p>Name of the artist, 0000</p>
+              </div>
+              <img src="images/icon/collect.png" class='collect-btn' onclick="collectThis(this)">
+          </div>
+  
+          <div class="pin">
+            <img src="" alt="image" class="pop_img1" id="SK" onClick="event.stopPropagation(); sending(this);">
+            <div class="info">
+                <h3>Title of the artwork</h3>
+                <p>Name of the artist, 0000</p>
+              </div>
+              <img src="images/icon/collect.png" class='collect-btn' onclick="collectThis(this)">
+            </div>
+  
+          <div class="pin">
+            <img src="" alt="image" class="pop_img1" id="SK" onClick="event.stopPropagation(); sending(this);">
+            <div class="info">
+                <h3>Title of the artwork</h3>
+                <p>Name of the artist, 0000</p>
+              </div>
+              <img src="images/icon/collect.png" class='collect-btn' onclick="collectThis(this)">
+          </div>
+  
+          <div class="pin">
+            <img src="" alt="image" class="pop_img1" id="SK" onClick="event.stopPropagation(); sending(this);">
+            <div class="info">
+                <h3>Title of the artwork</h3>
+                <p>Name of the artist, 0000</p>
+              </div>
+              <img src="images/icon/collect.png" class='collect-btn' onclick="collectThis(this)">
+          </div>
+  
+          <div class="pin">
+            <img src="" alt="image" class="pop_img1" id="SK" onClick="event.stopPropagation(); sending(this);">
+            <div class="info">
+                <h3>Title of the artwork</h3>
+                <p>Name of the artist, 0000</p>
+              </div>
+              <img src="images/icon/collect.png" class='collect-btn' onclick="collectThis(this)">
+          </div>
+  
+          <div class="pin">
+            <img src="" alt="image" class="pop_img1" id="SK" onClick="event.stopPropagation(); sending(this);">
+            <div class="info">
+                <h3>Title of the artwork</h3>
+                <p>Name of the artist, 0000</p>
+              </div>
+              <img src="images/icon/collect.png" class='collect-btn' onclick="collectThis(this)">
+          </div>
+  
+          <div class="pin">
+            <img src="" alt="image" class="pop_img1" id="SK" onClick="event.stopPropagation(); sending(this);">
+            <div class="info">
+                <h3>Title of the artwork</h3>
+                <p>Name of the artist, 0000</p>
+              </div>
+              <img src="images/icon/collect.png" class='collect-btn' onclick="collectThis(this)">
+          </div>
+  
+          <div class="pin">
+            <img src="" alt="image" class="pop_img1" id="SK" onClick="event.stopPropagation(); sending(this);">
+            <div class="info">
+                <h3>Title of the artwork</h3>
+                <p>Name of the artist, 0000</p>
+              </div>
+              <img src="images/icon/collect.png" class='collect-btn' onclick="collectThis(this)">
+          </div>
+  
+          <div class="pin">
+            <img src="" alt="image" class="pop_img1" id="SK" onClick="event.stopPropagation(); sending(this);">
+            <div class="info">
+                <h3>Title of the artwork</h3>
+                <p>Name of the artist, 0000</p>
+              </div>
+              <img src="images/icon/collect.png" class='collect-btn' onclick="collectThis(this)">
+          </div>
+  
+          <div class="pin">
+            <img src="" alt="image" class="pop_img1" id="SK" onClick="event.stopPropagation(); sending(this);">
+            <div class="info">
+                <h3>Title of the artwork</h3>
+                <p>Name of the artist, 0000</p>
+              </div>
+              <img src="images/icon/collect.png" class='collect-btn' onclick="collectThis(this)">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="2" class="section" title="b">
+      <div class="preview">
+        <img src="" class="preview-img2">
+        <img src="" class="preview-img2">
+        <img src="" class="preview-img2">
+        <img src="" class="preview-img2">
+        <img src="" class="preview-img2">
+        <div class="title" id="title">
+          <h1 class="word">loading...</h1>
+        </div>
+        <div class="hover-text">
+          <div class="title-to-search">
+            <h1 class="word-hover">loading...</h1>
+            <span class="fa fa-search"></span>
+          </div>
+          <br>
+          <span class="fa fa-refresh" id='2' onClick="event.stopPropagation(); shuffle(this);"></span>
+        </div>
+      </div>
+      <div id="wrapper">
+        <div class="section-textbox">
+          <h1 class="section-text">flowers</h1>
+          <span class="fa fa-close" onClick="event.stopPropagation(); closeSection();"></span>
+        </div>  
+        <div id="columns">
+            <div class="pin">
+                <img src="" alt="image" class="pop_img2" id="SK" onClick="event.stopPropagation(); sending(this);">
+                <div class="info">
+                  <h3>Title of the artwork</h3>
+                  <p>Name of the artist, 0000</p>
+                </div>
+                <img src="images/icon/collect.png" class='collect-btn' onclick="collectThis(this)">
+            </div>
+    
+            <div class="pin">
+              <img src="" alt="image" class="pop_img2" id="SK" onClick="event.stopPropagation(); sending(this);">
+              <div class="info">
+                  <h3>Title of the artwork</h3>
+                  <p>Name of the artist, 0000</p>
+                </div>
+                <img src="images/icon/collect.png" class='collect-btn' onclick="collectThis(this)">
+              </div>
+    
+            <div class="pin">
+              <img src="" alt="image" class="pop_img2" id="SK" onClick="event.stopPropagation(); sending(this);">
+              <div class="info">
+                  <h3>Title of the artwork</h3>
+                  <p>Name of the artist, 0000</p>
+                </div>
+                <img src="images/icon/collect.png" class='collect-btn' onclick="collectThis(this)">
+            </div>
+    
+            <div class="pin">
+              <img src="" alt="image" class="pop_img2" id="SK" onClick="event.stopPropagation(); sending(this);">
+              <div class="info">
+                  <h3>Title of the artwork</h3>
+                  <p>Name of the artist, 0000</p>
+                </div>
+                <img src="images/icon/collect.png" class='collect-btn' onclick="collectThis(this)">
+            </div>
+    
+            <div class="pin">
+              <img src="" alt="image" class="pop_img2" id="SK" onClick="event.stopPropagation(); sending(this);">
+              <div class="info">
+                  <h3>Title of the artwork</h3>
+                  <p>Name of the artist, 0000</p>
+                </div>
+                <img src="images/icon/collect.png" class='collect-btn' onclick="collectThis(this)">
+            </div>
+    
+            <div class="pin">
+              <img src="" alt="image" class="pop_img2" id="SK" onClick="event.stopPropagation(); sending(this);">
+              <div class="info">
+                  <h3>Title of the artwork</h3>
+                  <p>Name of the artist, 0000</p>
+                </div>
+                <img src="images/icon/collect.png" class='collect-btn' onclick="collectThis(this)">
+            </div>
+    
+            <div class="pin">
+              <img src="" alt="image" class="pop_img2" id="SK" onClick="event.stopPropagation(); sending(this);">
+              <div class="info">
+                  <h3>Title of the artwork</h3>
+                  <p>Name of the artist, 0000</p>
+                </div>
+                <img src="images/icon/collect.png" class='collect-btn' onclick="collectThis(this)">
+            </div>
+    
+            <div class="pin">
+              <img src="" alt="image" class="pop_img2" id="SK" onClick="event.stopPropagation(); sending(this);">
+              <div class="info">
+                  <h3>Title of the artwork</h3>
+                  <p>Name of the artist, 0000</p>
+                </div>
+                <img src="images/icon/collect.png" class='collect-btn' onclick="collectThis(this)">
+            </div>
+    
+            <div class="pin">
+              <img src="" alt="image" class="pop_img2" id="SK" onClick="event.stopPropagation(); sending(this);">
+              <div class="info">
+                  <h3>Title of the artwork</h3>
+                  <p>Name of the artist, 0000</p>
+                </div>
+                <img src="images/icon/collect.png" class='collect-btn' onclick="collectThis(this)">
+            </div>
+    
+            <div class="pin">
+              <img src="" alt="image" class="pop_img2" id="SK" onClick="event.stopPropagation(); sending(this);">
+              <div class="info">
+                  <h3>Title of the artwork</h3>
+                  <p>Name of the artist, 0000</p>
+                </div>
+                <img src="images/icon/collect.png" class='collect-btn' onclick="collectThis(this)">
+            </div>
+            <div class="pin">
+              <img src="" alt="image" class="pop_img2" id="SK" onClick="event.stopPropagation(); sending(this);">
+              <div class="info">
+                <h3>Title of the artwork</h3>
+                <p>Name of the artist, 0000</p>
+              </div>
+              <img src="images/icon/collect.png" class='collect-btn' onclick="collectThis(this)">
+          </div>
+  
+          <div class="pin">
+            <img src="" alt="image" class="pop_img2" id="SK" onClick="event.stopPropagation(); sending(this);">
+            <div class="info">
+                <h3>Title of the artwork</h3>
+                <p>Name of the artist, 0000</p>
+              </div>
+              <img src="images/icon/collect.png" class='collect-btn' onclick="collectThis(this)">
+            </div>
+  
+          <div class="pin">
+            <img src="" alt="image" class="pop_img2" id="SK" onClick="event.stopPropagation(); sending(this);">
+            <div class="info">
+                <h3>Title of the artwork</h3>
+                <p>Name of the artist, 0000</p>
+              </div>
+              <img src="images/icon/collect.png" class='collect-btn' onclick="collectThis(this)">
+          </div>
+  
+          <div class="pin">
+            <img src="" alt="image" class="pop_img2" id="SK" onClick="event.stopPropagation(); sending(this);">
+            <div class="info">
+                <h3>Title of the artwork</h3>
+                <p>Name of the artist, 0000</p>
+              </div>
+              <img src="images/icon/collect.png" class='collect-btn' onclick="collectThis(this)">
+          </div>
+  
+          <div class="pin">
+            <img src="" alt="image" class="pop_img2" id="SK" onClick="event.stopPropagation(); sending(this);">
+            <div class="info">
+                <h3>Title of the artwork</h3>
+                <p>Name of the artist, 0000</p>
+              </div>
+              <img src="images/icon/collect.png" class='collect-btn' onclick="collectThis(this)">
+          </div>
+  
+          <div class="pin">
+            <img src="" alt="image" class="pop_img2" id="SK" onClick="event.stopPropagation(); sending(this);">
+            <div class="info">
+                <h3>Title of the artwork</h3>
+                <p>Name of the artist, 0000</p>
+              </div>
+              <img src="images/icon/collect.png" class='collect-btn' onclick="collectThis(this)">
+          </div>
+  
+          <div class="pin">
+            <img src="" alt="image" class="pop_img2" id="SK" onClick="event.stopPropagation(); sending(this);">
+            <div class="info">
+                <h3>Title of the artwork</h3>
+                <p>Name of the artist, 0000</p>
+              </div>
+              <img src="images/icon/collect.png" class='collect-btn' onclick="collectThis(this)">
+          </div>
+  
+          <div class="pin">
+            <img src="" alt="image" class="pop_img2" id="SK" onClick="event.stopPropagation(); sending(this);">
+            <div class="info">
+                <h3>Title of the artwork</h3>
+                <p>Name of the artist, 0000</p>
+              </div>
+              <img src="images/icon/collect.png" class='collect-btn' onclick="collectThis(this)">
+          </div>
+  
+          <div class="pin">
+            <img src="" alt="image" class="pop_img2" id="SK" onClick="event.stopPropagation(); sending(this);">
+            <div class="info">
+                <h3>Title of the artwork</h3>
+                <p>Name of the artist, 0000</p>
+              </div>
+              <img src="images/icon/collect.png" class='collect-btn' onclick="collectThis(this)">
+          </div>
+  
+          <div class="pin">
+            <img src="" alt="image" class="pop_img2" id="SK" onClick="event.stopPropagation(); sending(this);">
+            <div class="info">
+                <h3>Title of the artwork</h3>
+                <p>Name of the artist, 0000</p>
+              </div>
+              <img src="images/icon/collect.png" class='collect-btn' onclick="collectThis(this)">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="3" class="section" title="c">
+      <div class="preview">
+        <img src="" class="preview-img3">
+        <img src="" class="preview-img3">
+        <img src="" class="preview-img3">
+        <img src="" class="preview-img3">
+        <img src="" class="preview-img3">
+        <div class="title" id="title">
+          <h1 class="word">loading...</h1>
+        </div>
+        <div class="hover-text">
+          <div class="title-to-search" onClick="event.stopPropagation(); searchTitle(this);">
+            <h1 class="word-hover">loading...</h1>
+            <span class="fa fa-search"></span>
+          </div>
+          <br>
+          <span class="fa fa-refresh" id='3' onClick="event.stopPropagation(); shuffle(this);"></span>
+        </div>
+      </div>
+      <div id="wrapper">
+        <div class="section-textbox">
+          <h1 class="section-text">flowers</h1>
+          <span class="fa fa-close" onClick="event.stopPropagation(); closeSection();"></span>
+        </div>  
+        <div id="columns">
+            <div class="pin" >
+                <img src="" alt="image" class="pop_img3" id="SK" onClick="event.stopPropagation(); sending(this);">
+                <div class="info">
+                  <h3>Title of the artwork</h3>
+                  <p>Name of the artist, 0000</p>
+                </div>
+                <img src="images/icon/collect.png" class='collect-btn' onclick="collectThis(this)">
+            </div>
+    
+            <div class="pin">
+              <img src="" alt="image" class="pop_img3" id="SK" onClick="event.stopPropagation(); sending(this);">
+              <div class="info">
+                  <h3>Title of the artwork</h3>
+                  <p>Name of the artist, 0000</p>
+                </div>
+                <img src="images/icon/collect.png" class='collect-btn' onclick="collectThis(this)">  
+              </div>
+    
+            <div class="pin">
+              <img src="" alt="image" class="pop_img3" id="SK" onClick="event.stopPropagation(); sending(this);">
+              <div class="info">
+                  <h3>Title of the artwork</h3>
+                  <p>Name of the artist, 0000</p>
+                </div>
+                <img src="images/icon/collect.png" class='collect-btn' onclick="collectThis(this)">
+            </div>
+    
+            <div class="pin">
+              <img src="" alt="image" class="pop_img3" id="SK" onClick="event.stopPropagation(); sending(this);">
+              <div class="info">
+                  <h3>Title of the artwork</h3>
+                  <p>Name of the artist, 0000</p>
+                </div>
+                <img src="images/icon/collect.png" class='collect-btn' onclick="collectThis(this)">
+            </div>
+    
+            <div class="pin">
+              <img src="" alt="image" class="pop_img3" id="SK" onClick="event.stopPropagation(); sending(this);">
+              <div class="info">
+                  <h3>Title of the artwork</h3>
+                  <p>Name of the artist, 0000</p>
+                </div>
+                <img src="images/icon/collect.png" class='collect-btn' onclick="collectThis(this)">
+            </div>
+    
+            <div class="pin">
+              <img src="" alt="image" class="pop_img3" id="SK" onClick="event.stopPropagation(); sending(this);">
+              <div class="info">
+                  <h3>Title of the artwork</h3>
+                  <p>Name of the artist, 0000</p>
+                </div>
+                <img src="images/icon/collect.png" class='collect-btn' onclick="collectThis(this)">
+            </div>
+    
+            <div class="pin">
+              <img src="" alt="image" class="pop_img3" id="SK" onClick="event.stopPropagation(); sending(this);">
+              <div class="info">
+                  <h3>Title of the artwork</h3>
+                  <p>Name of the artist, 0000</p>
+                </div>
+                <img src="images/icon/collect.png" class='collect-btn' onclick="collectThis(this)">
+            </div>
+    
+            <div class="pin">
+              <img src="" alt="image" class="pop_img3" id="SK" onClick="event.stopPropagation(); sending(this);">
+              <div class="info">
+                  <h3>Title of the artwork</h3>
+                  <p>Name of the artist, 0000</p>
+                </div>
+                <img src="images/icon/collect.png" class='collect-btn' onclick="collectThis(this)">
+            </div>
+    
+            <div class="pin">
+              <img src="" alt="image" class="pop_img3" id="SK" onClick="event.stopPropagation(); sending(this);">
+              <div class="info">
+                  <h3>Title of the artwork</h3>
+                  <p>Name of the artist, 0000</p>
+                </div>
+                <img src="images/icon/collect.png" class='collect-btn' onclick="collectThis(this)">
+            </div>
+    
+            <div class="pin">
+              <img src="" alt="image" class="pop_img3" id="SK" onClick="event.stopPropagation(); sending(this);">
+              <div class="info">
+                  <h3>Title of the artwork</h3>
+                  <p>Name of the artist, 0000</p>
+                </div>
+                <img src="images/icon/collect.png" class='collect-btn' onclick="collectThis(this)">
+            </div>
+            <div class="pin" >
+              <img src="" alt="image" class="pop_img3" id="SK" onClick="event.stopPropagation(); sending(this);">
+              <div class="info">
+                <h3>Title of the artwork</h3>
+                <p>Name of the artist, 0000</p>
+              </div>
+              <img src="images/icon/collect.png" class='collect-btn' onclick="collectThis(this)">
+          </div>
+  
+          <div class="pin">
+            <img src="" alt="image" class="pop_img3" id="SK" onClick="event.stopPropagation(); sending(this);">
+            <div class="info">
+                <h3>Title of the artwork</h3>
+                <p>Name of the artist, 0000</p>
+              </div>
+              <img src="images/icon/collect.png" class='collect-btn' onclick="collectThis(this)">  
+            </div>
+  
+          <div class="pin">
+            <img src="" alt="image" class="pop_img3" id="SK" onClick="event.stopPropagation(); sending(this);">
+            <div class="info">
+                <h3>Title of the artwork</h3>
+                <p>Name of the artist, 0000</p>
+              </div>
+              <img src="images/icon/collect.png" class='collect-btn' onclick="collectThis(this)">
+          </div>
+  
+          <div class="pin">
+            <img src="" alt="image" class="pop_img3" id="SK" onClick="event.stopPropagation(); sending(this);">
+            <div class="info">
+                <h3>Title of the artwork</h3>
+                <p>Name of the artist, 0000</p>
+              </div>
+              <img src="images/icon/collect.png" class='collect-btn' onclick="collectThis(this)">
+          </div>
+  
+          <div class="pin">
+            <img src="" alt="image" class="pop_img3" id="SK" onClick="event.stopPropagation(); sending(this);">
+            <div class="info">
+                <h3>Title of the artwork</h3>
+                <p>Name of the artist, 0000</p>
+              </div>
+              <img src="images/icon/collect.png" class='collect-btn' onclick="collectThis(this)">
+          </div>
+  
+          <div class="pin">
+            <img src="" alt="image" class="pop_img3" id="SK" onClick="event.stopPropagation(); sending(this);">
+            <div class="info">
+                <h3>Title of the artwork</h3>
+                <p>Name of the artist, 0000</p>
+              </div>
+              <img src="images/icon/collect.png" class='collect-btn' onclick="collectThis(this)">
+          </div>
+  
+          <div class="pin">
+            <img src="" alt="image" class="pop_img3" id="SK" onClick="event.stopPropagation(); sending(this);">
+            <div class="info">
+                <h3>Title of the artwork</h3>
+                <p>Name of the artist, 0000</p>
+              </div>
+              <img src="images/icon/collect.png" class='collect-btn' onclick="collectThis(this)">
+          </div>
+  
+          <div class="pin">
+            <img src="" alt="image" class="pop_img3" id="SK" onClick="event.stopPropagation(); sending(this);">
+            <div class="info">
+                <h3>Title of the artwork</h3>
+                <p>Name of the artist, 0000</p>
+              </div>
+              <img src="images/icon/collect.png" class='collect-btn' onclick="collectThis(this)">
+          </div>
+  
+          <div class="pin">
+            <img src="" alt="image" class="pop_img3" id="SK" onClick="event.stopPropagation(); sending(this);">
+            <div class="info">
+                <h3>Title of the artwork</h3>
+                <p>Name of the artist, 0000</p>
+              </div>
+              <img src="images/icon/collect.png" class='collect-btn' onclick="collectThis(this)">
+          </div>
+  
+          <div class="pin">
+            <img src="" alt="image" class="pop_img3" id="SK" onClick="event.stopPropagation(); sending(this);">
+            <div class="info">
+                <h3>Title of the artwork</h3>
+                <p>Name of the artist, 0000</p>
+              </div>
+              <img src="images/icon/collect.png" class='collect-btn' onclick="collectThis(this)">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="4" class="section" title="d">
+      <div class="preview">
+       <img src="" class="preview-img4">
+        <img src="" class="preview-img4">
+        <img src="" class="preview-img4">
+        <img src="" class="preview-img4">
+        <img src="" class="preview-img4">
+        <div class="title" id="title">
+          <h1 class="word">loading...</h1>
+        </div>
+        <div class="hover-text">
+          <div class="title-to-search" onClick="event.stopPropagation(); searchTitle(this);">
+            <h1 class="word-hover">loading...</h1>
+            <span class="fa fa-search"></span>
+          </div>
+          <br>
+          <span class="fa fa-refresh" id='4' onClick="event.stopPropagation(); shuffle(this);"></span>
+        </div>
+      </div>
+      <div id="wrapper">
+        <div class="section-textbox">
+          <h1 class="section-text">flowers</h1>
+          <span class="fa fa-close" onClick="event.stopPropagation(); closeSection();"></span>
+        </div>  
+        <div id="columns">
+            <div class="pin" >
+                <img src="" alt="image" class="pop_img4" id="SK" onClick="event.stopPropagation(); sending(this);">
+                <div class="info">
+                  <h3>Title of the artwork</h3>
+                  <p>Name of the artist, 0000</p>
+                </div>
+                <img src="images/icon/collect.png" class='collect-btn' onclick="collectThis(this)">
+            </div>
+    
+            <div class="pin">
+              <img src="" alt="image" class="pop_img4" id="SK" onClick="event.stopPropagation(); sending(this);">
+              <div class="info">
+                  <h3>Title of the artwork</h3>
+                  <p>Name of the artist, 0000</p>
+                </div>
+                <img src="images/icon/collect.png" class='collect-btn' onclick="collectThis(this)">  
+              </div>
+    
+            <div class="pin">
+              <img src="" alt="image" class="pop_img4" id="SK" onClick="event.stopPropagation(); sending(this);">
+              <div class="info">
+                  <h3>Title of the artwork</h3>
+                  <p>Name of the artist, 0000</p>
+                </div>
+                <img src="images/icon/collect.png" class='collect-btn' onclick="collectThis(this)">
+            </div>
+    
+            <div class="pin">
+              <img src="" alt="image" class="pop_img4" id="SK" onClick="event.stopPropagation(); sending(this);">
+              <div class="info">
+                  <h3>Title of the artwork</h3>
+                  <p>Name of the artist, 0000</p>
+                </div>
+                <img src="images/icon/collect.png" class='collect-btn' onclick="collectThis(this)">
+            </div>
+    
+            <div class="pin">
+              <img src="" alt="image" class="pop_img4" id="SK" onClick="event.stopPropagation(); sending(this);">
+              <div class="info">
+                  <h3>Title of the artwork</h3>
+                  <p>Name of the artist, 0000</p>
+                </div>
+                <img src="images/icon/collect.png" class='collect-btn' onclick="collectThis(this)">
+            </div>
+    
+            <div class="pin">
+              <img src="" alt="image" class="pop_img4" id="SK" onClick="event.stopPropagation(); sending(this);">
+              <div class="info">
+                  <h3>Title of the artwork</h3>
+                  <p>Name of the artist, 0000</p>
+                </div>
+                <img src="images/icon/collect.png" class='collect-btn' onclick="collectThis(this)">
+            </div>
+    
+            <div class="pin">
+              <img src="" alt="image" class="pop_img4" id="SK" onClick="event.stopPropagation(); sending(this);">
+              <div class="info">
+                  <h3>Title of the artwork</h3>
+                  <p>Name of the artist, 0000</p>
+                </div>
+                <img src="images/icon/collect.png" class='collect-btn' onclick="collectThis(this)">
+            </div>
+    
+            <div class="pin">
+              <img src="" alt="image" class="pop_img4" id="SK" onClick="event.stopPropagation(); sending(this);">
+              <div class="info">
+                  <h3>Title of the artwork</h3>
+                  <p>Name of the artist, 0000</p>
+                </div>
+                <img src="images/icon/collect.png" class='collect-btn' onclick="collectThis(this)">
+            </div>
+    
+            <div class="pin">
+              <img src="" alt="image" class="pop_img4" id="SK" onClick="event.stopPropagation(); sending(this);">
+              <div class="info">
+                  <h3>Title of the artwork</h3>
+                  <p>Name of the artist, 0000</p>
+                </div>
+                <img src="images/icon/collect.png" class='collect-btn' onclick="collectThis(this)">
+            </div>
+    
+            <div class="pin">
+              <img src="" alt="image" class="pop_img4" id="SK" onClick="event.stopPropagation(); sending(this);">
+              <div class="info">
+                  <h3>Title of the artwork</h3>
+                  <p>Name of the artist, 0000</p>
+                </div>
+                <img src="images/icon/collect.png" class='collect-btn' onclick="collectThis(this)">
+            </div>
+              <div class="pin" >
+                  <img src="" alt="image" class="pop_img4" id="SK" onClick="event.stopPropagation(); sending(this);">
+                  <div class="info">
+                    <h3>Title of the artwork</h3>
+                    <p>Name of the artist, 0000</p>
+                  </div>
+                  <img src="images/icon/collect.png" class='collect-btn' onclick="collectThis(this)">
+              </div>
+      
+              <div class="pin">
+                <img src="" alt="image" class="pop_img4" id="SK" onClick="event.stopPropagation(); sending(this);">
+                <div class="info">
+                    <h3>Title of the artwork</h3>
+                    <p>Name of the artist, 0000</p>
+                  </div>
+                  <img src="images/icon/collect.png" class='collect-btn' onclick="collectThis(this)">  
+                </div>
+      
+              <div class="pin">
+                <img src="" alt="image" class="pop_img4" id="SK" onClick="event.stopPropagation(); sending(this);">
+                <div class="info">
+                    <h3>Title of the artwork</h3>
+                    <p>Name of the artist, 0000</p>
+                  </div>
+                  <img src="images/icon/collect.png" class='collect-btn' onclick="collectThis(this)">
+              </div>
+      
+              <div class="pin">
+                <img src="" alt="image" class="pop_img4" id="SK" onClick="event.stopPropagation(); sending(this);">
+                <div class="info">
+                    <h3>Title of the artwork</h3>
+                    <p>Name of the artist, 0000</p>
+                  </div>
+                  <img src="images/icon/collect.png" class='collect-btn' onclick="collectThis(this)">
+              </div>
+      
+              <div class="pin">
+                <img src="" alt="image" class="pop_img4" id="SK" onClick="event.stopPropagation(); sending(this);">
+                <div class="info">
+                    <h3>Title of the artwork</h3>
+                    <p>Name of the artist, 0000</p>
+                  </div>
+                  <img src="images/icon/collect.png" class='collect-btn' onclick="collectThis(this)">
+              </div>
+      
+              <div class="pin">
+                <img src="" alt="image" class="pop_img4" id="SK" onClick="event.stopPropagation(); sending(this);">
+                <div class="info">
+                    <h3>Title of the artwork</h3>
+                    <p>Name of the artist, 0000</p>
+                  </div>
+                  <img src="images/icon/collect.png" class='collect-btn' onclick="collectThis(this)">
+              </div>
+      
+              <div class="pin">
+                <img src="" alt="image" class="pop_img4" id="SK" onClick="event.stopPropagation(); sending(this);">
+                <div class="info">
+                    <h3>Title of the artwork</h3>
+                    <p>Name of the artist, 0000</p>
+                  </div>
+                  <img src="images/icon/collect.png" class='collect-btn' onclick="collectThis(this)">
+              </div>
+      
+              <div class="pin">
+                <img src="" alt="image" class="pop_img4" id="SK" onClick="event.stopPropagation(); sending(this);">
+                <div class="info">
+                    <h3>Title of the artwork</h3>
+                    <p>Name of the artist, 0000</p>
+                  </div>
+                  <img src="images/icon/collect.png" class='collect-btn' onclick="collectThis(this)">
+              </div>
+      
+              <div class="pin">
+                <img src="" alt="image" class="pop_img4" id="SK" onClick="event.stopPropagation(); sending(this);">
+                <div class="info">
+                    <h3>Title of the artwork</h3>
+                    <p>Name of the artist, 0000</p>
+                  </div>
+                  <img src="images/icon/collect.png" class='collect-btn' onclick="collectThis(this)">
+              </div>
+      
+              <div class="pin">
+                <img src="" alt="image" class="pop_img4" id="SK" onClick="event.stopPropagation(); sending(this);">
+                <div class="info">
+                    <h3>Title of the artwork</h3>
+                    <p>Name of the artist, 0000</p>
+                  </div>
+                  <img src="images/icon/collect.png" class='collect-btn' onclick="collectThis(this)">
+              </div>
+            
+      </div>
+    </div>
+    </div>
+  </div>
+
+    <div class="collection-pop">
+      <div class="collection-header">
+        <div class="title">Collection</div>
+        <span class="fa fa-close" onclick="closeCollection();"></span>
+      </div>
+      <div class="collection-body"> 
+        <div id="columns">
+          <div class="pin" >
+              <img src="" alt="image" class="pop_img" onClick="event.stopPropagation(); sending(this);">
+              <div class="info">
+                <h3>Title of the artwork</h3>
+                <p>Name of the artist, 0000</p>
+              </div>
+          </div>
+  
+          <div class="pin">
+            <img src="" alt="image" class="pop_img" onClick="event.stopPropagation(); sending(this);">
+            <div class="info">
+                <h3>Title of the artwork</h3>
+                <p>Name of the artist, 0000</p>
+              </div> 
+            </div>
+  
+          <div class="pin">
+            <img src="" alt="image" class="pop_img" onClick="event.stopPropagation(); sending(this);">
+            <div class="info">
+                <h3>Title of the artwork</h3>
+                <p>Name of the artist, 0000</p>
+              </div>
+          </div>
+  
+          <div class="pin">
+            <img src="" alt="image" class="pop_img" onClick="event.stopPropagation(); sending(this);">
+            <div class="info">
+                <h3>Title of the artwork</h3>
+                <p>Name of the artist, 0000</p>
+              </div>
+          </div>
+  
+          <div class="pin">
+            <img src="" alt="image" class="pop_img" onClick="event.stopPropagation(); sending(this);">
+            <div class="info">
+                <h3>Title of the artwork</h3>
+                <p>Name of the artist, 0000</p>
+              </div>
+          </div>
+  
+          <div class="pin">
+            <img src="" alt="image" class="pop_img" onClick="event.stopPropagation(); sending(this);">
+            <div class="info">
+                <h3>Title of the artwork</h3>
+                <p>Name of the artist, 0000</p>
+              </div>
+          </div>
+  
+          <div class="pin">
+            <img src="" alt="image" class="pop_img" onClick="event.stopPropagation(); sending(this);">
+            <div class="info">
+                <h3>Title of the artwork</h3>
+                <p>Name of the artist, 0000</p>
+              </div>
+          </div>
+  
+          <div class="pin">
+            <img src="" alt="image" class="pop_img" onClick="event.stopPropagation(); sending(this);">
+            <div class="info">
+                <h3>Title of the artwork</h3>
+                <p>Name of the artist, 0000</p>
+              </div>
+          </div>
+  
+          <div class="pin">
+            <img src="" alt="image" class="pop_img" onClick="event.stopPropagation(); sending(this);">
+            <div class="info">
+                <h3>Title of the artwork</h3>
+                <p>Name of the artist, 0000</p>
+              </div>
+          </div>
+  
+          <div class="pin">
+            <img src="" alt="image" class="pop_img" onClick="event.stopPropagation(); sending(this);">
+            <div class="info">
+                <h3>Title of the artwork</h3>
+                <p>Name of the artist, 0000</p>
+              </div>
+          </div>
+      </div> 
+      <div id="download-btn">
+        <h3>Download All</h3>
+      </div>
+      </div>
+  
+    </div>
+    <div id='overlay' onclick="closeCollection();"></div>
+</body>
+
+</html>
+
