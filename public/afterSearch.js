@@ -46,7 +46,7 @@ function getTitle(){
     main.title=id;
     relevant=relevance;
     if(relevant==0){
-        btn.style.left='100px';
+        btn.style.left='116px';
         weirdbtn.style.color='white';
         regularbtn.style.color='#A19481';
     }else{
@@ -80,7 +80,7 @@ function regular(){
 }
 
 function weird(){
-    btn.style.left='100px';
+    btn.style.left='116px';
     weirdbtn.style.color='white';
     regularbtn.style.color='#A19481';
     relevant=0;
@@ -156,13 +156,14 @@ const setIndex=[];
 const response = await fetch('csv/keyword.csv');
 const data=await response.text();
 const keywordTable=data.split('\n');
+console.log(text,keywordTable[2]);
 keywordTable.forEach(row =>{
-    if (row.split(" ").includes(text)){
+    var name=row.replace(/(\r\n|\n|\r)/gm, "");
+    if (text==name || name.split(" ").includes(text)){
         setIndex.push(r);
     }
     r+=1;
 })
-
 if (setIndex.length!=0){
     collectObjnum(text,setIndex,section);
 }
@@ -175,18 +176,19 @@ async function collectObjnum(text,rowArr,section){
     const setTable=data.split('\n').slice(1);
     const arrArt=dictObj[text];
     console.log(arrArt);
-    const n=20;
+    const n=45;
     //var iteminArray = dict[text];
 
     while(arrArt.length<n){
         const row=rowArr[Math.floor(Math.random()*rowArr.length)];
-        const items=setTable[Number(row)-1].replace('\r', "").split(',');
+        const items=setTable[Number(row)-2].replace('\r', "").split(',');
         items.forEach(function(item){
             if(!arrArt.includes(item) && arrArt.length<n){   
                 //console.log(text+' items are '+item);            
                 arrArt.push(item);
             }
         })
+
     }
     if(arrArt.length==n){
         var promises=[];
@@ -412,41 +414,41 @@ async function rijksstudioBackupMatch(list,item,section){
 
 //connect to Imagga
 async function getTagsFromNodeJs(imageUrl) {
-    // This will make a API call to our NodeJs server
-    // the "./" in the url indicates that we want to use the same url as this webpage.
-    const respons = await fetch("./api", {
-        method: "POST", // We want to use the POST method because that is what NodeJs is waiting for.
-        headers: {
-            'Content-Type': 'application/json' // Tell Nodejs that we will be collectThis JSON data
-        },
-        body: JSON.stringify({ // In here will be the data accessible to NodeJS
-            image: imageUrl //
-        })
-    })
+    // // This will make a API call to our NodeJs server
+    // // the "./" in the url indicates that we want to use the same url as this webpage.
+    // const respons = await fetch("./api", {
+    //     method: "POST", // We want to use the POST method because that is what NodeJs is waiting for.
+    //     headers: {
+    //         'Content-Type': 'application/json' // Tell Nodejs that we will be collectThis JSON data
+    //     },
+    //     body: JSON.stringify({ // In here will be the data accessible to NodeJS
+    //         image: imageUrl //
+    //     })
+    // })
 
-    // Now we must get the data from the response
-    const data = await respons.json()
-    // log the data
-    let tagsData=data.result.tags;
-    let tags=[];
-
-    for (var i=0; i<tagsData.length; i++){
-        if(!tagsData[i].tag.en.includes(' ') && tagsData[i].tag.en!=main.title){
-            tags.push(tagsData[i].tag.en);
-        }
-    }
-
-
-    // //test part
+    // // Now we must get the data from the response
+    // const data = await respons.json()
+    // // log the data
+    // let tagsData=data.result.tags;
     // let tags=[];
 
-    // var testtags=['religion', 'old', 'gold', 'antique', 'ancient', 'traditional', 'art', 'sculpture', 'culture', 'travel', 'religious', 'bottle', 'prayer', 'shell', 'temple', 'covering', 'statue', 'decoration', 'luxury', 'cowboy boot', 'tattoo', 'device', 'tourism', 'wine bottle', 'interior', 'couch', 'vintage', 'person', 'clothing', 'hat', 'golden', 'furniture', 'room', 'wood', 'fashion', 'market', 'metal', 'body', 'wooden', 'container', 'seated', 'sofa', 'spiritual', 'meditation', 'shop', 'sitting', 'portrait', 'adult', 'attractive', 'design', 'vessel', 'industrial', 'style', 'boot', 'man', 'brown', 'black', 'pray', 'worship', 'industry', 'sit', 'food', 'one', 'closeup', 'inside', 'colorful', 'face', 'steel', 'indoors'];
-    
-    // for (var i=0; i<testtags.length; i++){
-    //     if(!testtags[i].includes(' ') && testtags[i]!=main.title){
-    //         tags.push(testtags[i]);
+    // for (var i=0; i<tagsData.length; i++){
+    //     if(!tagsData[i].tag.en.includes(' ') && tagsData[i].tag.en!=main.title){
+    //         tags.push(tagsData[i].tag.en);
     //     }
     // }
+
+
+    //test part
+    let tags=[];
+
+    var testtags=['religion', 'old', 'gold', 'antique', 'ancient', 'traditional', 'art', 'sculpture', 'culture', 'travel', 'religious', 'bottle', 'prayer', 'shell', 'temple', 'covering', 'statue', 'decoration', 'luxury', 'cowboy boot', 'tattoo', 'device', 'tourism', 'wine bottle', 'interior', 'couch', 'vintage', 'person', 'clothing', 'hat', 'golden', 'furniture', 'room', 'wood', 'fashion', 'market', 'metal', 'body', 'wooden', 'container', 'seated', 'sofa', 'spiritual', 'meditation', 'shop', 'sitting', 'portrait', 'adult', 'attractive', 'design', 'vessel', 'industrial', 'style', 'boot', 'man', 'brown', 'black', 'pray', 'worship', 'industry', 'sit', 'food', 'one', 'closeup', 'inside', 'colorful', 'face', 'steel', 'indoors'];
+    
+    for (var i=0; i<testtags.length; i++){
+        if(!testtags[i].includes(' ') && testtags[i]!=main.title){
+            tags.push(testtags[i]);
+        }
+    }
 
     surprising=tags.slice(-10);
     related=tags.slice(0,10);
@@ -540,7 +542,8 @@ async function moreImagesPreview(section,text){
     const data=await response.text();
     const keywordTable=data.split('\n');
     keywordTable.forEach(row =>{
-        if (text ==row){
+        var name=row.replace(/(\r\n|\n|\r)/gm, "");
+        if (text==name || name.split(" ").includes(text)){
             setIndex.push(r);
         }
         r+=1;
@@ -569,7 +572,7 @@ async function collectObjnumforPreview(section,rowArr){
     const n=5;
     while(arrArt.length<n){
         const row=rowArr[Math.floor(Math.random()*rowArr.length)];
-        const items=setTable[Number(row)-1].replace('\r', "").split(',');
+        const items=setTable[Number(row)-2].replace('\r', "").split(',');
         items.forEach(function(item){
             if(!previewObjnum.includes(item) && !arrArt.includes(main_imgs[0].id) && arrArt.length<n){   
                 arrArt.push(item);
@@ -714,8 +717,17 @@ function closeCollection(){
 
 function searchTitle(a){
     var title=a.children[0].innerHTML;
-    console.log('title is: '+title);
-    location.search = location.search.replace(location.href.split('#')[1],'id='+title);
+    //console.log('title is: '+title);
+    //location.search = location.search.replace(location.href.split('#')[1],'id='+title+'&relevance='+relevant);
+    var str = location.search;
+    if (new RegExp("[&?]"+name+"([=&].+)?$").test(str)) {
+        str = str.replace(new RegExp("(?:[&?])"+name+"[^&]*", "g"), "")
+    }
+    str += name + "id=" + title+'&relevance='+relevant;
+    str = "#" + str.slice(1);
+    // there is an official order for the query and the hash if you didn't know.
+    location.assign(location.origin + location.pathname + str + location.hash);
+    location.reload();
 }
 
 //display the images, send url to html

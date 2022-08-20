@@ -23,6 +23,7 @@ function passImg(){
     matchSimilar(id);
    }
 
+
 //detect if the image is in portrait or landscape
 main_img.addEventListener("load", function() {
     if (this.naturalHeight > this.naturalWidth) {
@@ -104,10 +105,10 @@ async function collectObjnum(objnum,rowArr){
     const data=await response.text();
     const setTable=data.split('\n').slice(1);
     const arrArt=[];
-    const n=30;
+    const n=60;
     while(arrArt.length<n){
         const row=rowArr[Math.floor(Math.random()*rowArr.length)];
-        const items=setTable[Number(row)-1].replace('\r', "").split(',');
+        const items=setTable[Number(row)-2].replace('\r', "").split(',');
         items.forEach(function(item){
             if(!arrArt.includes(item) && item!=objnum &&arrArt.length<n){   
                 arrArt.push(item);
@@ -351,7 +352,7 @@ function regular(){
 }
 
 function weird(){
-    btn.style.left='100px';
+    btn.style.left='116px';
     weirdbtn.style.color='white';
     regularbtn.style.color='#A19481';
     relevant=0;

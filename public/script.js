@@ -29,7 +29,7 @@ function regular(){
 }
 
 function weird(){
-    btn.style.left='100px';
+    btn.style.left='116px';
     weirdbtn.style.color='white';
     regularbtn.style.color='#A19481';
     relevant=0;
@@ -104,73 +104,7 @@ input.addEventListener("keypress", function(event) {
     back-end
 -------------------------------------------------------- */
 
-//collect 10 usersets which are named as the search term
-async function getImageforSearch(searchterm){
-    const setIndex=[];
-    //fetch csv with only setnames
-    const response = await fetch('assets/csv/keyword.csv');
-    const data=await response.text();
-    const keywordTable=data.split('\n');
-    //loop
-    var n=0;
-    const newArr=[];
-    for (var i=0; i<keywordTable.length; i++){
-        var setname=keywordTable[i];
-        if (setname.indexOf(word)!==-1 && setIndex.length<10){
-            setIndex.push(i);
-        }
-    }
-    return (setIndex);
-    }
 
-//collect 10 usersets for the top4 of the Imagga array
-async function getImageforHome(arr,main){
-    urlArr=[];
-    const setIndex=[];
-    const response = await fetch('assets/csv/keyword.csv');
-    const data=await response.text();
-    const keywordTable=data.split('\n');
-    var n=0;
-    const newArr=[];
-    while (n<arr.length){
-        for (i=0; i<keywordTable.length; i++){
-            var setname=keywordTable[i];
-            var word=arr[n];
-            //console.log(typeof (setname)+ ' and ' +typeof (word));
-            if (setname.indexOf(word)!==-1 && setIndex.length<20){
-                setIndex.push(i);
-                newArr.push(word);
-                //console.log("n is: "+n, arr[n]+' original is: '+keywordTable[i])
-                n+=1;
-            }
-        }
-        n+=1;
-    }
-}
-
-//collect 10 usersets for the section word
-async function getImageforSection(arr,section){
-    urlArr=[];
-    const setIndex=[];
-    const response = await fetch('csv/keyword.csv');
-    const data=await response.text();
-    const keywordTable=data.split('\n');
-    var n=0;
-    const newArr=[];
-    while (n<arr.length){
-        for (i=0; i<keywordTable.length; i++){
-            var setname=keywordTable[i];
-            var word=arr[n] 
-            //console.log(typeof (setname)+ ' and ' +typeof (word));
-            if (setname.indexOf(word)!==-1 && setIndex.length<20){
-                setIndex.push(i);
-                newArr.push(word);
-                //console.log("n is: "+n, arr[n]+' original is: '+keywordTable[i])
-                n+=1;
-            }
-        }
-    }
-}
 //collect imageUrls for the collected usersets
 
 //display the images
@@ -256,7 +190,8 @@ async function moreImages(text,section){
     const data=await response.text();
     const keywordTable=data.split('\n');
     keywordTable.forEach(row =>{
-        if (text ==row){
+        var name=row.replace(/(\r\n|\n|\r)/gm, "");
+        if (text==name || name.split(" ").includes(text)){
             setIndex.push(r);
         }
         r+=1;
@@ -273,10 +208,10 @@ async function collectObjnum(text,rowArr,section){
     const data=await response.text();
     const setTable=data.split('\n').slice(1);
     const arrArt=[];
-    const n=20;
+    const n=45;
     while(arrArt.length<n){
         const row=rowArr[Math.floor(Math.random()*rowArr.length)];
-        const items=setTable[Number(row)-1].replace('\r', "").split(',');
+        const items=setTable[Number(row)-2].replace('\r', "").split(',');
         items.forEach(function(item){
             if(!arrArt.includes(item) && arrArt.length<n){   
                 //console.log('items are '+item);            
