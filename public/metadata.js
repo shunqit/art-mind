@@ -56,7 +56,6 @@ async function matchSimilar(objnum){
     const data=await response.text();
     const setTable=data.split('\n').slice(1);
     const arrRow=[]; //array of the row
-
     for (var i=0; i<setTable.length; i++){
         const items=setTable[i].replace('\r', "").split(',');
         items.forEach(item=>{
@@ -65,7 +64,9 @@ async function matchSimilar(objnum){
                 }
             })
     }
-    collectObjnum(objnum,arrRow);
+    if(arrRow.length>0){
+        collectObjnum(objnum,arrRow);
+    }
 }
 
 function passvalues(){
@@ -100,7 +101,7 @@ function changeSimilarImg(i, url, objNum) {
 }
 
 async function collectObjnum(objnum,rowArr){
-    //console.log(rowArr);
+    console.log(rowArr);
     const response = await fetch('csv/userSets.csv');
     const data=await response.text();
     const setTable=data.split('\n').slice(1);
@@ -108,6 +109,7 @@ async function collectObjnum(objnum,rowArr){
     const n=60;
     while(arrArt.length<n){
         const row=rowArr[Math.floor(Math.random()*rowArr.length)];
+        //console.log(setTable[Number(row)-2]);
         const items=setTable[Number(row)-2].replace('\r', "").split(',');
         items.forEach(function(item){
             if(!arrArt.includes(item) && item!=objnum &&arrArt.length<n){   
@@ -352,7 +354,7 @@ function regular(){
 }
 
 function weird(){
-    btn.style.left='116px';
+    btn.style.left='197px';
     weirdbtn.style.color='white';
     regularbtn.style.color='#A19481';
     relevant=0;

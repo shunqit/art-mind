@@ -19,7 +19,7 @@
 <body onload="getTitle();">
   <div class="header">
     <div class="logo">
-      <img src="images/icon/logo.png" alt="logo" onclick='location.reload();'/>
+      <img src="images/icon/logo.png" alt="logo" onclick="location.href = 'index.html';"/>
     </div>
 
     <div class="search_bar">
@@ -28,11 +28,10 @@
     </div>
 
     <div class='related-btn'>
-      <h2>Relatedness:</h2>
       <div class="button-box">
         <div id="btn"></div>
-        <button type="button" id='regular' class="toggle-btn" style='color:white' onclick="regular()">Closely</button>
-        <button type="button" id='weird' class="toggle-btn" onclick="weird()">Distantly</button>
+        <button type="button" id='regular' class="toggle-btn" style='color:white' onclick="regular()">Closely-related</button>
+        <button type="button" id='weird' class="toggle-btn" onclick="weird()">Distantly-related</button>
       </div>
     </div>
 

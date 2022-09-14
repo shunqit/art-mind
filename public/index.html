@@ -16,7 +16,7 @@
 
   <script defer src="script.js"></script>
 </head>
-<body onload="window.localStorage.clear();">
+<body onload="window.localStorage.clear();loadHome();">
   <div class="header">
     <div class="logo">
       <img src="images/icon/logo.png" alt="logo" />
@@ -27,11 +27,10 @@
       <span class="fa fa-search fa-2x" id="searchButton" onclick="passvalues();"></span>
     </div> 
     <div class='related-btn'>
-      <h2>Relatedness:</h2>
       <div class="button-box">
         <div id="btn"></div>
-        <button type="button" id='regular' class="toggle-btn" style='color:white' onclick="regular()">Closely</button>
-        <button type="button" id='weird' class="toggle-btn" onclick="weird()">Distantly</button>
+        <button type="button" id='regular' class="toggle-btn" style='color:white' onclick="regular()">Closely-related</button>
+        <button type="button" id='weird' class="toggle-btn" onclick="weird()">Distantly-related</button>
       </div>
     </div>
 
@@ -42,17 +41,19 @@
 
   </div>
   <div class="content" id="content">
-    <div id="0" class="section" title="flowers">
+    <div id="0" class="section" title="fashion">
       <div class="preview">
-        <img src="images/flowers1.jpg" class="preview">
-        <img src="images/flowers2.jpeg" class="preview">
-        <img src="images/flowers3.jpeg" class="preview">
+        <img src="" class="preview-img0">
+        <img src="" class="preview-img0">
+        <img src="" class="preview-img0">
+        <img src="" class="preview-img0">
+        <img src="" class="preview-img0">
         <div class="title" id="title">
-        <h1>flowers</h1>
+        <h1>fashion</h1>
         </div>
         <div class="hover-text">
           <div class="title-to-search" onClick="event.stopPropagation(); searchTitle(this);">
-            <h1>flowers</h1>
+            <h1>fashion</h1>
             <span class="fa fa-search"></span>
           </div>
           <br>
@@ -62,7 +63,7 @@
 
       <div id="wrapper">
         <div class="section-textbox">
-          <h1 class="section-text">flowers</h1>
+          <h1 class="section-text">fashion</h1>
           <span class="fa fa-close" onClick="event.stopPropagation(); closeSection();"></span>
         </div>  
         <div id="columns">
@@ -430,17 +431,19 @@
 
     </div>
 
-    <div id="1" class="section" title="animals">
+    <div id="1" class="section" title="still life">
       <div class="preview">
-        <img src="images/animals1.jpeg" class="preview">
-        <img src="images/animals2.jpeg" class="preview">
-        <img src="images/animals3.jpeg" class="preview">
+        <img src="" class="preview-img1">
+        <img src="" class="preview-img1">
+        <img src="" class="preview-img1">
+        <img src="" class="preview-img1">
+        <img src="" class="preview-img1">
         <div class="title" id="title">
-          <h1>animals</h1>
+          <h1>still life</h1>
         </div>
         <div class="hover-text">
           <div class="title-to-search" onClick="event.stopPropagation(); searchTitle(this);">
-            <h1>animals</h1>
+            <h1>still life</h1>
             <span class="fa fa-search"></span>
           </div>
           <br>
@@ -449,7 +452,7 @@
       </div>
       <div id="wrapper">
         <div class="section-textbox">
-          <h1 class="section-text">flowers</h1>
+          <h1 class="section-text">still life</h1>
           <span class="fa fa-close" onClick="event.stopPropagation(); closeSection();"></span>
         </div>  
         <div id="columns">
@@ -815,9 +818,11 @@
 
     <div id="2" class="section" title="portraits">
       <div class="preview">
-        <img src="images/portraits1.jpeg" class="preview">
-        <img src="images/portraits2.jpeg" class="preview">
-        <img src="images/portraits3.jpeg" class="preview">
+        <img src="" class="preview-img2">
+        <img src="" class="preview-img2">
+        <img src="" class="preview-img2">
+        <img src="" class="preview-img2">
+        <img src="" class="preview-img2">
         <div class="title" id="title">
           <h1>portraits</h1>
         </div>
@@ -1198,9 +1203,11 @@
 
     <div id="3" class="section" title="landscape">
       <div class="preview">
-        <img src="images/landscape1.jpg" class="preview">
-        <img src="images/landscape2.jpeg" class="preview">
-        <img src="images/landscape3.jpg" class="preview">
+        <img src="" class="preview-img3">
+        <img src="" class="preview-img3">
+        <img src="" class="preview-img3">
+        <img src="" class="preview-img3">
+        <img src="" class="preview-img3">
         <div class="title" id="title">
           <h1>landscape</h1>
         </div>
@@ -1582,9 +1589,11 @@
 
     <div id="4" class="section" title="patterns">
       <div class="preview">
-        <img src="images/patterns1.jpg" class="preview">
-        <img src="images/pattern2.jpg" class="preview">
-        <img src="images/pattern3.jpeg" class="preview">
+        <img src="" class="preview-img4">
+        <img src="" class="preview-img4">
+        <img src="" class="preview-img4">
+        <img src="" class="preview-img4">
+        <img src="" class="preview-img4">
         <div class="title" id="title">
           <h1>patterns</h1>
         </div>

@@ -10,6 +10,8 @@
 -------------------------------------------------------- */
 //relevance button and value
 const DEV_MODE = true;
+var dictObj={};
+
 var titles_expand=document.querySelectorAll('.section-text');
 var btn=document.getElementById('btn');
 var regularbtn=document.getElementById('regular');
@@ -29,7 +31,7 @@ function regular(){
 }
 
 function weird(){
-    btn.style.left='116px';
+    btn.style.left='197px';
     weirdbtn.style.color='white';
     regularbtn.style.color='#A19481';
     relevant=0;
@@ -50,29 +52,39 @@ var popimagesSection2 =document.querySelectorAll('.pop_img2');
 var popimagesSection3 =document.querySelectorAll('.pop_img3');
 var popimagesSection4 =document.querySelectorAll('.pop_img4');
 
+var preview0 =document.querySelectorAll('.preview-img0');
+var preview1 =document.querySelectorAll('.preview-img1');
+var preview2 =document.querySelectorAll('.preview-img2');
+var preview3 =document.querySelectorAll('.preview-img3');
+var preview4 =document.querySelectorAll('.preview-img4');
+
 
 const homeimages =document.querySelectorAll('.preview');
 var sections=document.querySelectorAll('.section');
 for (var i = 0; i < sections.length; i++) {
     sections[i].addEventListener("click", function() {
         //event.preventDefault();
+
         if (! this.hasAttribute('data-active') || this.dataset.active=='inactive'){
             var key=this.title;
             var section=this.id;
+
+
             for (var j = 0; j < sections.length; j++) {
                 sections[j].dataset.active = "inactive";
                 }
                 //console.log(this);
                 if (this.dataset.active == "inactive") {
-                this.dataset.active = "active";
-                    if(dict.hasOwnProperty(key)){
-                        console.log('show loaded images '+dict);
+                    this.dataset.active = "active";
+                    if(dict[key].length>6){
+                        displayImglist('popimagesSection'+section, dict[key], dictObj[key]);
+                        console.log('show loaded images: ');
+
                     }else{
                         moreImages(key,section);
                     }
                 }
                 //popimages[i].src= url;
-    
         }
         }
         )
@@ -182,66 +194,102 @@ function changeHomeimg(i,url){
 
 // get more images of the section
 async function moreImages(text,section){
-    //console.log(text);
-    var r=0;
+    //display text
     titles_expand[section].innerHTML=text;
-    const setIndex=[];
-    const response = await fetch('csv/keyword.csv');
-    const data=await response.text();
-    const keywordTable=data.split('\n');
-    keywordTable.forEach(row =>{
-        var name=row.replace(/(\r\n|\n|\r)/gm, "");
-        if (text==name || name.split(" ").includes(text)){
-            setIndex.push(r);
+    collectObjnum(text,section);
+    // var r=0;
+    // const setIndex=[];
+    // const response = await fetch('csv/keyword.csv');
+    // const data=await response.text();
+    // const keywordTable=data.split('\n');
+    // keywordTable.forEach(row =>{
+    //     var name=row.replace(/(\r\n|\n|\r)/gm, "");
+    //     if (text==name || name.split(" ").includes(text)){
+    //         setIndex.push(r);
+    //     }
+    //     r+=1;
+    // })
+    // if (setIndex.length!=0){
+    //     collectObjnum(text,setIndex,section);
+    // }
+    }
+    
+    
+    async function collectObjnum(text,section){
+        const arr=[];
+        const n=40;
+        let j=0;
+        let rijksstudio=await fetch('https://www.rijksmuseum.nl/api/en/collection?key=poaBzFoO&q='+text+'&s=relevance&ps='+n+'&imgonly=True');
+        let json= await rijksstudio.json();
+        if(json.artObjects[0]!==undefined){
+            while (j<json.artObjects.length){
+                let objnum=json.artObjects[j].objectNumber;
+                j++;
+                arr.push(objnum);
+            }
+            var promises=[];
+            for (let i=0; i<n;i++){
+                promises.push(getImage(arr[i]));
+            }  
+            Promise.all(promises)
+            .then((results)=>{
+                //console.log(results);
+                let i=0;
+                //let n=0;
+                while (i<n){
+                    changePopimg('popimagesSection'+section,i,results[i],arr[i]);
+                    i++;
+                }
+                const final=results; 
+                dict[text]=final;
+                //console.log(iteminArray,dict);  
+    
+        } )
         }
-        r+=1;
-    })
 
-    if (setIndex.length!=0){
-        collectObjnum(text,setIndex,section);
-        //console.log('index array is '+setIndex);
+    //     const response = await fetch('csv/userSets.csv');
+    //     const data=await response.text();
+    //     const setTable=data.split('\n').slice(1);
+    //     const arrArt=dictObj[text];
+    //     console.log(arrArt);
+    //     const n=45;
+    //     //var iteminArray = dict[text];
+    
+    //     while(arrArt.length<n){
+    //         const row=rowArr[Math.floor(Math.random()*rowArr.length)];
+    //         const items=setTable[Number(row)-2].replace('\r', "").split(',');
+    //         items.forEach(function(item){
+    //             if(!arrArt.includes(item) && arrArt.length<n){   
+    //                 //console.log(text+' items are '+item);            
+    //                 arrArt.push(item);
+    //             }
+    //         })
+    
+    //     }
+    //     if(arrArt.length==n){
+    //         var promises=[];
+    //         for (let i=0; i<n;i++){
+    //             promises.push(getImage(arrArt[i]));
+    //         }  
+    //         Promise.all(promises)
+    //         .then((results)=>{
+    //             //console.log(results);
+    //             let i=0;
+    //             //let n=0;
+    //             while (i<n){
+    //                 changePopimg('popimagesSection'+section,i,results[i],arrArt[i]);
+    //                 i++;
+    //             }
+    //             const final=results; 
+    //             dict[text]=final;
+    //             //console.log(iteminArray,dict);  
+    
+    //     } )
+    // }else{
+    //     console.log('no');
+    // }
     }
-
-}
-async function collectObjnum(text,rowArr,section){
-    const response = await fetch('csv/userSets.csv');
-    const data=await response.text();
-    const setTable=data.split('\n').slice(1);
-    const arrArt=[];
-    const n=45;
-    while(arrArt.length<n){
-        const row=rowArr[Math.floor(Math.random()*rowArr.length)];
-        const items=setTable[Number(row)-2].replace('\r', "").split(',');
-        items.forEach(function(item){
-            if(!arrArt.includes(item) && arrArt.length<n){   
-                //console.log('items are '+item);            
-                arrArt.push(item);
-            }
-        })
-    }
-    if(arrArt.length==n){
-        //console.log('full list is '+arrArt);
-        let promises=[];
-        for (let i=0; i<n;i++){
-            promises.push(getImage(arrArt[i]));
-        }  
-        Promise.all(promises)
-        .then((results)=>{
-            //console.log(results);
-            let i=0;
-            //let n=0;
-            while (i<n){
-                //console.log(arrArt[i],results[i]);
-
-                //n++;
-                changePopimg('popimagesSection'+section,i,results[i],arrArt[i]);
-                i++;
-            }
-            dict[text]=results;
-            console.log(dict);    
-        })
-    }   
-}
+    
 
 function changePopimg(section,i,url,objnum){
     //console.log(window[section]);
@@ -396,3 +444,63 @@ function searchTitle(a){
     var title=a.children[0].innerHTML;
     window.location.href='afterSearch.html#id='+title+'&relevance='+relevant;
 }
+
+
+async function rijksstudioMatch5(index,item){
+    let rijksstudio=await fetch('https://www.rijksmuseum.nl/api/en/collection?key=poaBzFoO&q='+item+'&s=relevance&ps=5&imgonly=True');
+    let json= await rijksstudio.json();
+    var mostRelevant5=[];
+    if(json.artObjects[0]!='null'){
+        for(i=0;i<5;i++){
+            if(json.artObjects[i]){
+                var objnum=json.artObjects[i].objectNumber;
+                mostRelevant5.push(objnum);
+            }
+        }
+        dictObj[item]=mostRelevant5;
+        console.log(item+' top5 are '+mostRelevant5); 
+        configureURL('preview'+index,mostRelevant5,item);   
+    }else{
+        console.log(item+' nothing found in Rijksstudio database.')
+    }        
+}
+
+
+function loadHome(){
+    var array=['fashion','still life','portraits','landscape','patterns'];
+    for (var i=0;i<array.length;i++){
+        rijksstudioMatch5(i,array[i]);
+    }
+}
+
+async function configureURL(section,SK,item){
+    var element = window[section];
+    for(var i=0;i<5;i++){
+        let wikiapi= await fetch('https://commons.wikimedia.org/w/api.php?action=query&list=search&srnamespace=6&srlimit=1&format=json&srsearch=' + SK[i]+' rijksmuseum jpeg'+'&origin=*')
+        let json= await wikiapi.json();
+        if(json.query.search[0]!==undefined){
+            let data=json.query.search[0]['title'].slice(5);
+            let objnumjpeg=data.split(' ');
+            let objnum=objnumjpeg[objnumjpeg.length-1].split('.')[0]
+            let title=data.replace(/ /g,'_');
+            var hash = md5(title);
+            //let title=data.split(" ")[-1];
+            let url='https://upload.wikimedia.org/wikipedia/commons/thumb/'+hash.charAt(0)+'/'+hash.substring(0,2)+'/'+title+'/500px-'+title;
+            //console.log(objnum,url);
+            if(url=="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Battle_of_Scheveningen_(Slag_bij_Ter_Heijde)(Jan_Abrahamsz._Beerstraten).jpg/500px-Battle_of_Scheveningen_(Slag_bij_Ter_Heijde)(Jan_Abrahamsz._Beerstraten).jpg"){
+                return element[i].style.display = "none";
+            }
+            element[i].src=url;
+            element[i].id=objnum;
+            if (dict.hasOwnProperty(item)){
+                var iteminArray=dict[item];
+                const final=iteminArray.concat([url]); 
+                dict[item]=final;
+                //var newList=dict[item].push(url);
+                //dict[item]=newList;
+            }else{
+                dict[item]=[url];
+            }
+    }
+    }
+    }

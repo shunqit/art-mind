@@ -30,7 +30,7 @@ body{
 }
 
 .header h2{
-    color:#99876D;
+    color:#A68F7B;
     margin-right:10px;
     padding-top: 3px;
 }
@@ -74,7 +74,7 @@ left: 10px;
  }
 
 .fa-search:hover{
-    color:#99876D;
+    color:#A68F7B;
  }
 
 .fa-star-o{
@@ -99,8 +99,8 @@ left: 10px;
     position:relative;
     border-radius: 30px;
     background:#FFFFFF;
-    border: 2px solid #A19481;
-    width:250px;
+    border: 2px solid #A68F7B;
+    width:400px;
     height:48px;
 
 }
@@ -112,7 +112,7 @@ left: 10px;
     outline:none;
     position:relative;
     text-align: center;
-    color:#A19481;
+    color:#A68F7B;
     font-size: 20px; 
     height:48px;
     line-height:48px;
@@ -121,15 +121,15 @@ left: 10px;
     left:0;
     top:0;
     position:absolute;
-    width:130px;
+    width:200px;
     height:100%;
-    background:#A19481;
+    background:#A68F7B;
     border-radius: 30px;
     transition: .5s;
 }
 
 .active, .btn:hover{
-    background:#99876D;
+    background:#A68F7B;
 }
 
 .back{
@@ -186,7 +186,7 @@ left: 10px;
     margin:80px 10px 0 10px;
     text-align:center;
     height:93vh;
-    background:#99876D;
+    background:#A68F7B;
     overflow:hidden;
     color:#fff;
     position: relative;
@@ -228,7 +228,7 @@ left: 10px;
 }
 
 .section[data-active="inactive"]:hover{
-    background:#A19481;
+    background:#A68F7B;
 }
 
 .content:relevance{
@@ -312,7 +312,7 @@ left: 10px;
     cursor:pointer;
 }
 .fa-refresh:hover{
-    color:#A19481
+    color:#A68F7B
 }
 
 .content .title{

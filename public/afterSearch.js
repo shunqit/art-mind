@@ -46,7 +46,7 @@ function getTitle(){
     main.title=id;
     relevant=relevance;
     if(relevant==0){
-        btn.style.left='116px';
+        btn.style.left='197px';
         weirdbtn.style.color='white';
         regularbtn.style.color='#A19481';
     }else{
@@ -80,7 +80,7 @@ function regular(){
 }
 
 function weird(){
-    btn.style.left='116px';
+    btn.style.left='197px';
     weirdbtn.style.color='white';
     regularbtn.style.color='#A19481';
     relevant=0;
@@ -150,50 +150,43 @@ for (var i = 0; i < sections.length; i++) {
 async function moreImages(text,section){
 //display text
 titles_expand[section].innerHTML=text;
-
-var r=0;
-const setIndex=[];
-const response = await fetch('csv/keyword.csv');
-const data=await response.text();
-const keywordTable=data.split('\n');
-console.log(text,keywordTable[2]);
-keywordTable.forEach(row =>{
-    var name=row.replace(/(\r\n|\n|\r)/gm, "");
-    if (text==name || name.split(" ").includes(text)){
-        setIndex.push(r);
-    }
-    r+=1;
-})
-if (setIndex.length!=0){
-    collectObjnum(text,setIndex,section);
+if (text=='wilderness'){
+    text='wild';
 }
+collectObjnum(text,section);
+
+// var r=0;
+// const setIndex=[];
+// const response = await fetch('csv/keyword.csv');
+// const data=await response.text();
+// const keywordTable=data.split('\n');
+// keywordTable.forEach(row =>{
+//     var name=row.replace(/(\r\n|\n|\r)/gm, "");
+//     if (text==name || name.split(" ").includes(text)){
+//         setIndex.push(r);
+//     }
+//     r+=1;
+// })
+// if (setIndex.length!=0){
+//     collectObjnum(text,section);
+// }
 }
 
-
-async function collectObjnum(text,rowArr,section){
-    const response = await fetch('csv/userSets.csv');
-    const data=await response.text();
-    const setTable=data.split('\n').slice(1);
-    const arrArt=dictObj[text];
-    console.log(arrArt);
-    const n=45;
-    //var iteminArray = dict[text];
-
-    while(arrArt.length<n){
-        const row=rowArr[Math.floor(Math.random()*rowArr.length)];
-        const items=setTable[Number(row)-2].replace('\r', "").split(',');
-        items.forEach(function(item){
-            if(!arrArt.includes(item) && arrArt.length<n){   
-                //console.log(text+' items are '+item);            
-                arrArt.push(item);
-            }
-        })
-
-    }
-    if(arrArt.length==n){
+async function collectObjnum(text,section){
+    const arr=[];
+    const n=40;
+    let j=0;
+    let rijksstudio=await fetch('https://www.rijksmuseum.nl/api/en/collection?key=poaBzFoO&q='+text+'&s=relevance&ps='+n+'&imgonly=True');
+    let json= await rijksstudio.json();
+    if(json.artObjects[0]!==undefined){
+        while (j<json.artObjects.length){
+            let objnum=json.artObjects[j].objectNumber;
+            j++;
+            arr.push(objnum);
+        }
         var promises=[];
         for (let i=0; i<n;i++){
-            promises.push(getImage(arrArt[i]));
+            promises.push(getImage(arr[i]));
         }  
         Promise.all(promises)
         .then((results)=>{
@@ -201,7 +194,7 @@ async function collectObjnum(text,rowArr,section){
             let i=0;
             //let n=0;
             while (i<n){
-                changePopimg('popimagesSection'+section,i,results[i],arrArt[i]);
+                changePopimg('popimagesSection'+section,i,results[i],arr[i]);
                 i++;
             }
             const final=results; 
@@ -209,8 +202,49 @@ async function collectObjnum(text,rowArr,section){
             //console.log(iteminArray,dict);  
 
     } )
+    }
 }
-}
+
+// async function collectObjnum(text,rowArr,section){
+//     const response = await fetch('csv/userSets.csv');
+//     const data=await response.text();
+//     const setTable=data.split('\n').slice(1);
+//     const arrArt=dictObj[text];
+//     const n=45;
+//     //var iteminArray = dict[text];
+
+//     while(arrArt.length<n){
+//         const row=rowArr[Math.floor(Math.random()*rowArr.length)];
+//         const items=setTable[Number(row)-2].replace('\r', "").split(',');
+//         items.forEach(function(item){
+//             if(!arrArt.includes(item) && arrArt.length<n){   
+//                 //console.log(text+' items are '+item);            
+//                 arrArt.push(item);
+//             }
+//         })
+
+//     }
+//     if(arrArt.length==n){
+//         var promises=[];
+//         for (let i=0; i<n;i++){
+//             promises.push(getImage(arrArt[i]));
+//         }  
+//         Promise.all(promises)
+//         .then((results)=>{
+//             //console.log(results);
+//             let i=0;
+//             //let n=0;
+//             while (i<n){
+//                 changePopimg('popimagesSection'+section,i,results[i],arrArt[i]);
+//                 i++;
+//             }
+//             const final=results; 
+//             dict[text]=final;
+//             //console.log(iteminArray,dict);  
+
+//     } )
+// }
+// }
 
 function changePopimg(section,i,url,objnum){
     const element = window[section][i];
@@ -370,7 +404,7 @@ async function imaggaInput(SK){
 }
 
 async function rijksstudioMatch5(index,item){
-    let rijksstudio=await fetch('https://www.rijksmuseum.nl/api/en/collection?key=poaBzFoO&q='+item+'&s=relevance&ps=5&imgonly=True&type=painting');
+    let rijksstudio=await fetch('https://www.rijksmuseum.nl/api/en/collection?key=poaBzFoO&q='+item+'&s=relevance&ps=5&imgonly=True');
     let json= await rijksstudio.json();
     var mostRelevant5=[];
     if(json.artObjects[0]!='null'){
@@ -389,66 +423,66 @@ async function rijksstudioMatch5(index,item){
 }
 
 
-async function rijksstudioBackupMatch(list,item,section){
-    var mostRelevant5=list;
-    let rijksstudio=await fetch('https://www.rijksmuseum.nl/api/en/collection?key=poaBzFoO&q='+item+'&s=relevance&ps=5&imgonly=True&type=drawing');
-    let json= await rijksstudio.json();
-    while(mostRelevant5.length<5){
-        if(json.artObjects[i]){
-            var objnum=json.artObjects[i].objectNumber;
-            mostRelevant5.push(objnum);
-            i++;
-        }
-    }   
-    console.log(item+' top5 are '+mostRelevant5); 
-    //configureURL(section,mostRelevant5,item);
+// async function rijksstudioBackupMatch(list,item,section){
+//     var mostRelevant5=list;
+//     let rijksstudio=await fetch('https://www.rijksmuseum.nl/api/en/collection?key=poaBzFoO&q='+item+'&s=relevance&ps=5&imgonly=True&type=drawing');
+//     let json= await rijksstudio.json();
+//     while(mostRelevant5.length<5){
+//         if(json.artObjects[i]){
+//             var objnum=json.artObjects[i].objectNumber;
+//             mostRelevant5.push(objnum);
+//             i++;
+//         }
+//     }   
+//     console.log(item+' top5 are '+mostRelevant5); 
+//     //configureURL(section,mostRelevant5,item);
 
-    // if(json.artObjects[0]!==undefined){
-    //     const objnum=json.artObjects[index].objectNumber;
-    //     console.log(objnum);
-    //     return(objnum);
-    // }else{
-    //     console.log('still noting');
-    // }
-}
+//     // if(json.artObjects[0]!==undefined){
+//     //     const objnum=json.artObjects[index].objectNumber;
+//     //     console.log(objnum);
+//     //     return(objnum);
+//     // }else{
+//     //     console.log('still noting');
+//     // }
+// }
 
 //connect to Imagga
 async function getTagsFromNodeJs(imageUrl) {
-    // // This will make a API call to our NodeJs server
-    // // the "./" in the url indicates that we want to use the same url as this webpage.
-    // const respons = await fetch("./api", {
-    //     method: "POST", // We want to use the POST method because that is what NodeJs is waiting for.
-    //     headers: {
-    //         'Content-Type': 'application/json' // Tell Nodejs that we will be collectThis JSON data
-    //     },
-    //     body: JSON.stringify({ // In here will be the data accessible to NodeJS
-    //         image: imageUrl //
-    //     })
-    // })
+    // This will make a API call to our NodeJs server
+    // the "./" in the url indicates that we want to use the same url as this webpage.
+    const respons = await fetch("./api", {
+        method: "POST", // We want to use the POST method because that is what NodeJs is waiting for.
+        headers: {
+            'Content-Type': 'application/json' // Tell Nodejs that we will be collectThis JSON data
+        },
+        body: JSON.stringify({ // In here will be the data accessible to NodeJS
+            image: imageUrl //
+        })
+    })
 
-    // // Now we must get the data from the response
-    // const data = await respons.json()
-    // // log the data
-    // let tagsData=data.result.tags;
-    // let tags=[];
-
-    // for (var i=0; i<tagsData.length; i++){
-    //     if(!tagsData[i].tag.en.includes(' ') && tagsData[i].tag.en!=main.title){
-    //         tags.push(tagsData[i].tag.en);
-    //     }
-    // }
-
-
-    //test part
+    // Now we must get the data from the response
+    const data = await respons.json()
+    // log the data
+    let tagsData=data.result.tags;
     let tags=[];
 
-    var testtags=['religion', 'old', 'gold', 'antique', 'ancient', 'traditional', 'art', 'sculpture', 'culture', 'travel', 'religious', 'bottle', 'prayer', 'shell', 'temple', 'covering', 'statue', 'decoration', 'luxury', 'cowboy boot', 'tattoo', 'device', 'tourism', 'wine bottle', 'interior', 'couch', 'vintage', 'person', 'clothing', 'hat', 'golden', 'furniture', 'room', 'wood', 'fashion', 'market', 'metal', 'body', 'wooden', 'container', 'seated', 'sofa', 'spiritual', 'meditation', 'shop', 'sitting', 'portrait', 'adult', 'attractive', 'design', 'vessel', 'industrial', 'style', 'boot', 'man', 'brown', 'black', 'pray', 'worship', 'industry', 'sit', 'food', 'one', 'closeup', 'inside', 'colorful', 'face', 'steel', 'indoors'];
-    
-    for (var i=0; i<testtags.length; i++){
-        if(!testtags[i].includes(' ') && testtags[i]!=main.title){
-            tags.push(testtags[i]);
+    for (var i=0; i<tagsData.length; i++){
+        if(!tagsData[i].tag.en.includes(' ') && tagsData[i].tag.en!=main.title){
+            tags.push(tagsData[i].tag.en);
         }
     }
+
+
+    // //test part
+    // let tags=[];
+
+    // var testtags=['religion', 'old', 'gold', 'antique', 'ancient', 'traditional', 'art', 'sculpture', 'culture', 'travel', 'religious', 'bottle', 'prayer', 'shell', 'temple', 'covering', 'statue', 'decoration', 'luxury', 'cowboy boot', 'tattoo', 'device', 'tourism', 'wine bottle', 'interior', 'couch', 'vintage', 'person', 'clothing', 'hat', 'golden', 'furniture', 'room', 'wood', 'fashion', 'market', 'metal', 'body', 'wooden', 'container', 'seated', 'sofa', 'spiritual', 'meditation', 'shop', 'sitting', 'portrait', 'adult', 'attractive', 'design', 'vessel', 'industrial', 'style', 'boot', 'man', 'brown', 'black', 'pray', 'worship', 'industry', 'sit', 'food', 'one', 'closeup', 'inside', 'colorful', 'face', 'steel', 'indoors'];
+    
+    // for (var i=0; i<testtags.length; i++){
+    //     if(!testtags[i].includes(' ') && testtags[i]!=main.title){
+    //         tags.push(testtags[i]);
+    //     }
+    // }
 
     surprising=tags.slice(-10);
     related=tags.slice(0,10);
