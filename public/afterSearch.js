@@ -418,7 +418,7 @@ async function rijksstudioMatch5(index,item){
         console.log(item+' top5 are '+mostRelevant5); 
         configureURL('preview'+index,mostRelevant5,item);   
     }else{
-        console.log(item+' nothing found in Rijksstudio database.')
+        return false;
     }        
 }
 
@@ -517,7 +517,6 @@ async function changeOneSection(i,word){
     titles_hover[i].innerHTML=word;
     titles_div[i].title=word;
     rijksstudioMatch5(i,word);
-
 }
 async function getImage(objnum) {
     try {

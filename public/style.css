@@ -511,7 +511,7 @@ img[src=""] {
     display:flex;
     justify-content:space-between;
     align-items: center;
-    color:#836d4d;
+    color:#A68F7B;
     background-color:white;
 
 }
@@ -530,7 +530,7 @@ img[src=""] {
     font-size:40px;
 }
 .section-textbox .fa-close:hover {
-    color:#af9c7e;
+    color:#A68F7B;
 }
 
 #download-btn{

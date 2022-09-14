@@ -514,7 +514,8 @@ img[src=""] {
     width:86%;
     z-index: 2;
     padding:15px 0;
-    color:white;
+    background-color:white;
+    color:#A68F7B;
     display: flex;
     justify-content:space-between;
     align-items: center;
@@ -524,7 +525,6 @@ img[src=""] {
 .section-textbox .section-text{
     padding:0 10px;
     font-size:2rem;
-    background-color: #A68F7B; 
 }
 
 .section-textbox .fa-close{
@@ -536,7 +536,7 @@ img[src=""] {
     font-size:40px;
 }
 .section-textbox .fa-close:hover {
-    color:#af9c7e;
+    color:#A68F7B;
 }
 
 #download-btn{
