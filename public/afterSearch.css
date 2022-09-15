@@ -10,6 +10,10 @@ title{
     font-family:'B612', sans-serif;
 
 }
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: rgb(176, 173, 173);
+    opacity: 1; /* Firefox */
+  }
 
 /* Header */
 

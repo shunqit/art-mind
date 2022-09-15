@@ -14,6 +14,10 @@ title{
 body{
     height:100vh;
 }
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: rgb(176, 173, 173);
+    opacity: 1; /* Firefox */
+  }
 /* Header */
 
 .header{
