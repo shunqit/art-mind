@@ -240,7 +240,6 @@ left: 10px;
     -moz-column-fill: auto;
     column-count: 6;
     column-gap: 17px;
-    column-fill: auto;
     padding:30px 80px 0 80px;
     overflow-y: scroll;
 }
