@@ -376,7 +376,6 @@ left: 10px;
     -moz-column-fill: auto;
     column-count: 3;
     column-gap: 17px;
-    column-fill: auto;
     padding:30px 30px 0 30px;
     overflow-y: scroll;
 }
